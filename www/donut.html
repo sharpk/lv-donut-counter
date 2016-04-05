@@ -1,0 +1,39 @@
+<html>
+<head>
+	<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jQueryRotate.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		function onDataReceived(data) {
+			// update the displayed count
+			$('#count').text(String(data.count));
+		}
+		
+		function fetchData() {
+			$.ajax({
+				url: "GetCount",
+				type: "GET",
+				//data: params,
+				dataType: "json",
+				success: onDataReceived
+			});
+			
+			setTimeout(fetchData, 3000);
+		}
+		
+		fetchData();
+		
+		var angle = 0;
+		setInterval(function(){
+			angle+=0.5;
+			$("#donut").rotate(angle);
+		},50);
+	});
+	</script>
+</head>
+<body>
+<img id="donut" src="donut_cartoon.png" width="1000" height="1000"></img>
+<div id="count" style="position: absolute; top: 440px; left: 460px; font-size: 600%; font-family: 'Times New Roman', Times, serif;">00</div>
+<div style="position: absolute; top: 530px; left: 440px; font-size: 200%; font-family: 'Times New Roman', Times, serif;">donuts left</div>
+</body>
+</html>
