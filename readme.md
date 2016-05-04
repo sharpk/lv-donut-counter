@@ -1,6 +1,7 @@
 ##LabVIEW Donut Counter
-Ken Sharp
-April 2016 
+Ken Sharp, April 2016 
+
+![IMG](donut-cntr-overview.png)
 
 ###**Summary**
 This project is an example application for LabVIEW running on a BeagleBone Black.  It reads a photocell sensor located inside a donut box to sense when the box is opened.  Each time the donut box opens and closes a counter is decremented to indicate that a donut has been taken.  The application also uses LabVIEW web services to serve a web page which displays the current donut count.
